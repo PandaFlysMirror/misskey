@@ -358,7 +358,9 @@ common/views/components/note-menu.vue:
   pin: "ピン留め"
   unpin: "ピン留め解除"
   delete: "削除"
+  edit: "編集"
   delete-confirm: "この投稿を削除しますか？"
+  edit-confirm: "この投稿を編集しますか？"
   remote: "投稿元で見る"
 
 common/views/components/poll.vue:

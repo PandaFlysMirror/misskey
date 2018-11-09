@@ -60,6 +60,11 @@ export default Vue.extend({
 						icon: ['far', 'trash-alt'],
 						text: this.$t('delete'),
 						action: this.del
+					}] : [],
+					this.note.userId == this.$store.state.i.id ? [{
+						icon: ['fa', 'pencil-alt'],
+						text: this.$t('edit'),
+						action: this.edit
 					}] : []
 				]
 			].map(concat).filter(x => x.length > 0)));
@@ -98,6 +103,16 @@ export default Vue.extend({
 				noteId: this.note.id
 			}).then(() => {
 				this.destroyDom();
+			});
+		},
+
+		edit() {
+			if (!window.confirm(this.$t('edit-confirm'))) return;
+			this.$root.api('notes/delete', {
+				noteId: this.note.id
+			}).then(() => {
+				this.destroyDom();
+				// TODO: open post-form
 			});
 		},
 
